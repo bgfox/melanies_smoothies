@@ -2,10 +2,7 @@
 import streamlit as st
 from snowflake.snowpark.functions import col
 
-# New section to display smoothiefroot nutrition information
-import requests
-smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
-st.text(smoothiefroot_response)
+
 
 # Write directly to the app
 st.title(":cup_with_straw: Customize Your Smoothie! :cup_with_straw:")
@@ -64,7 +61,10 @@ if ingredients_list:
        st.success('Your smoothie is ordered, ' + name_on_order + '!', icon="✅")
 
     
-
+# New section to display smoothiefroot nutrition information
+import requests
+smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
+st.text(smoothiefroot_response.json())
 
    
 
